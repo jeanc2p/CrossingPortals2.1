@@ -4,11 +4,27 @@ using UnityEngine;
 
 public class LogicaCogerObjetos : MonoBehaviour
 {
+
+
+    //public bool tienePowerUp;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //StartCoroutine("RutinaTemporizadorPowerUp");
     }
+    //IEnumerator RutinaTemporizadorPowerUp()
+    //{
+      //  yield return new WaitForSeconds(10f);
+        //other.GetComponent<LogicaObjeto>().Efecto().disable();
+
+    //}
+
+    /* IEnumerator RutinaTemporizadorPowerUp()
+   {
+       yield return new WaitForSeconds(7);
+       tienePowerUp = false;
+
+   }*/
 
     // Update is called once per frame
     void Update()
@@ -19,7 +35,7 @@ public class LogicaCogerObjetos : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(ray,out hitInfo))
             {
-                if (hitInfo.collider.gameObject.tag == "objeto" && hitInfo.collider.gameObject.GetComponent<LogicaObjeto>().destruirConCursor == true)
+                if (hitInfo.collider.gameObject.tag == "objetoEnemigo" && hitInfo.collider.gameObject.GetComponent<LogicaObjeto>().destruirConCursor == true)
                 {
                    // Debug.Log(hitInfo.collider.gameObject.tag);
                     hitInfo.collider.gameObject.GetComponent<LogicaObjeto>().Efecto();
@@ -27,21 +43,23 @@ public class LogicaCogerObjetos : MonoBehaviour
                 }
             }
 
-        }      
+        }     
+      
+
 
     }
     
-    private void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other)
     {
        // Debug.Log(other.tag);
 
-        if (other.tag == "objeto" && other.GetComponent<LogicaObjeto>().destruirAutomatico == true)
+        if (other.tag == "objetoEnemigo" && other.GetComponent<LogicaObjeto>().destruirAutomatico == true)
         {
             other.GetComponent<LogicaObjeto>().Efecto();
             Destroy(other.gameObject);
         }
 
-        if (other.tag == "objeto")
+        if (other.tag == "objetoEnemigo")
         {
             if (Input.GetMouseButtonDown(1) && other.GetComponent<LogicaObjeto>().destruirConCursor == false )
             {
@@ -50,6 +68,9 @@ public class LogicaCogerObjetos : MonoBehaviour
             }
         }
 
+        //tienePowerUp = true;
+
+      
 
     }
 
