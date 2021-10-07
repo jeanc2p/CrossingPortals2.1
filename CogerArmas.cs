@@ -6,13 +6,15 @@ public class CogerArmas : MonoBehaviour
 {
 
     public GameObject[] armas;
+    public BoxCollider[] armasBoxColl;
+    public BoxCollider puñoBoxColl;
 
     public LogicaPersonaje1 logicaPersonaje1;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        DesactivarColliderArmas();   
     }
 
     // Update is called once per frame
@@ -51,5 +53,40 @@ public class CogerArmas : MonoBehaviour
         logicaPersonaje1.conArma = false;
     }
 
+
+    public void ActivarColliderArmas()
+    {
+        for (int i = 0; i<armasBoxColl.Length;i++)
+        {
+            if (logicaPersonaje1.conArma)
+            {
+                if (armasBoxColl[i] != null)
+                {
+                    armasBoxColl[i].enabled = true;
+                }
+            }
+            else
+            {
+                puñoBoxColl.enabled = true;
+            }
+
+        }
+
+    }
+
+
+    public void DesactivarColliderArmas()
+    {
+
+        for (int i = 0; i <armasBoxColl.Length;i++)
+        {
+            if (armasBoxColl[i] != null)
+            {
+                armasBoxColl[i].enabled = false;
+
+            }
+        }
+        puñoBoxColl.enabled = false;
+    }
 
 }
