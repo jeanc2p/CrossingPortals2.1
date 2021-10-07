@@ -10,7 +10,7 @@ public class LogicaEnemigoMazmorra1 : MonoBehaviour
     public int damageArma;
     public int damageFist;
 
-    //public Animator anim;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -25,33 +25,33 @@ public class LogicaEnemigoMazmorra1 : MonoBehaviour
 
     }
 
-    /*
+    
     private void OntriggerEnter(Collider other)
     {
 
         if (other.gameObject.tag == "armaImpacto")
         {
-            //if (anim != null)
-            //{
-            //  anim.Play("EnemigoMaz1");
+            if (anim != null)
+            {
+              anim.Play("EnemigoMaz1");
 
-            //}
+            }
             Destroy(gameObject);
-            // hp -= damageArma;
+             hp -= damageArma;
         }
         if (other.gameObject.tag == "golpeImpacto")
         {
-            //if (anim != null)
-            //{
-            //  anim.Play("EnemigoMaz1");
+            if (anim != null)
+            {
+             anim.Play("EnemigoMaz1");
 
-            //}
-            //hp -= damageFist;
+            }
+            hp -= damageFist;
 
 
             Destroy(gameObject);
 
-            /* }
+             }
              if (hp <= 0 )
              {
                  Destroy(gameObject);
