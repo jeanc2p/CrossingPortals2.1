@@ -66,7 +66,7 @@ public class LogicaEnemigoMazmorra1 : MonoBehaviour
 
         }
     }
-    */
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "golpeImpacto")
